@@ -6,6 +6,13 @@
   "scripts": {
     "start": "nodemon ./index.jsg"
   },
+  "keywords": [
+    "MVC",
+    "Express",
+    "MySQL",
+    "EJS",
+    "Tailwind"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/francocsanchez/odontoHistory.git"
