@@ -1,0 +1,26 @@
+{
+  "name": "odontohistory",
+  "version": "1.0.0",
+  "description": "Historial clinico odontologico",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.jsg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francocsanchez/odontoHistory.git"
+  },
+  "author": "Franco C Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francocsanchez/odontoHistory/issues"
+  },
+  "homepage": "https://github.com/francocsanchez/odontoHistory#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  }
+}
