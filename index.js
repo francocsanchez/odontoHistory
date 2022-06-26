@@ -1,18 +1,17 @@
-require('dotenv').config({ path: 'variables.env' });
-const path = require('path');
+require('dotenv').config('.env'); // Variables de entorno
 const express = require('express');
+const cors = require('cors');
+const dbConnect = require('./config/mongo'); // Archivo de configuracion de BD
 
-// TODO: Ruteadores
-const routerHome = require('./routers/home.js');
+const app = express(); // Inicio del servidor
 
-const app = express();
+app.use(cors());
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'));
+// TODO: Main de rutas
+app.use('/users', require('./routes/Users'));
 
-app.use(express.static('public'));
-app.use('/', routerHome);
-
-app.listen(process.env.PORT, () => {
-    console.log('Server running... in port ' + process.env.PORT);
+app.listen(process.env.APP_PORT || 3000, () => {
+    console.log('*** Server running ***');
+    console.log(`http://localhost/${process.env.APP_PORT || 3000}`);
 })
+dbConnect();
