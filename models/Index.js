@@ -1,5 +1,6 @@
 const models = {
-    userModel: require('./Users')
+    userModel: require('./Users'),
+    patientSchema: require('./Patients')
 }
 
 module.exports = models;

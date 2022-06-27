@@ -6,9 +6,11 @@ const dbConnect = require('./config/mongo'); // Archivo de configuracion de BD
 const app = express(); // Inicio del servidor
 
 app.use(cors());
+app.use(express.json());
 
 // TODO: Main de rutas
 app.use('/users', require('./routes/Users'));
+app.use('/patients', require('./routes/Patients'));
 
 app.listen(process.env.APP_PORT || 3000, () => {
     console.log('*** Server running ***');
