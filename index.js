@@ -11,6 +11,7 @@ app.use(express.json());
 // TODO: Main de rutas
 app.use('/users', require('./routes/Users'));
 app.use('/patients', require('./routes/Patients'));
+app.use('/work-socials', require('./routes/WorkSocials'));
 
 app.listen(process.env.APP_PORT || 3000, () => {
     console.log('*** Server running ***');

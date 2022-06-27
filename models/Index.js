@@ -1,6 +1,7 @@
 const models = {
     userModel: require('./Users'),
-    patientSchema: require('./Patients')
+    patientModel: require('./Patients'),
+    workSocialModel: require('./WorkSocial')
 }
 
 module.exports = models;
