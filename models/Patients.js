@@ -16,8 +16,8 @@ const patientSchema = new mongoose.Schema(
         },
         date_birth: { type: Date },
         work_social: {
-            type: String,
-            default: "Galeno"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'workSocial'
         },
         health_question: [
             {
