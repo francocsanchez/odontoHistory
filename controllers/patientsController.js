@@ -2,14 +2,14 @@ const { patientModel } = require('../models');
 
 // TODO: Listar pacientes
 const getPatients = async (req, res) => {
-    const data = await patientModel.find({});
+    const data = await patientModel.find({}).populate('workSocial');
 
     res.send({ data });
 }
 
 // TODO: Listar paciente
 const getPatient = async (req, res) => {
-    const patient = await patientModel.findOne({ "_id": req.params.id })
+    const patient = await patientModel.findOne({ "_id": req.params.id }).populate('workSocial');
 
     res.send({ patient })
 }

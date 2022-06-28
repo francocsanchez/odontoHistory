@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema(
     {
-        name: { type: String },
-        lastname: { type: String },
+        name: String,
+        lastname: String,
         dni: {
             type: Number,
             unique: true
@@ -15,7 +15,7 @@ const patientSchema = new mongoose.Schema(
             unique: true
         },
         date_birth: { type: Date },
-        work_social: {
+        workSocial: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'workSocial'
         },
