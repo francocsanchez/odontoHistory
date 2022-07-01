@@ -3,7 +3,7 @@ const { patientModel } = require('../models');
 // TODO: Listar pacientes
 const getItems = async (req, res) => {
     const patients = await patientModel.find({}).populate('workSocial');
-
+    
     res.render('./patients/list', { patients });
 }
 
