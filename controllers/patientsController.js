@@ -1,17 +1,24 @@
 const { patientModel } = require('../models');
 
 // TODO: Listar pacientes
-const getPatients = async (req, res) => {
-    const data = await patientModel.find({}).populate('workSocial');
+const getItems = async (req, res) => {
+    const patients = await patientModel.find({}).populate('workSocial');
 
-    res.send({ data });
+    res.render('./patients/list', { patients });
 }
 
 // TODO: Listar paciente
 const getPatient = async (req, res) => {
     const patient = await patientModel.findOne({ "_id": req.params.id }).populate('workSocial');
 
-    res.send({ patient })
+    res.render('./patients/show', { patient });
+}
+
+// TODO: Formulario crear paciente
+const getFormPatient = async (req, res) => {
+    const patient = await patientModel.findOne({ "_id": req.params.id }).populate('workSocial');
+
+    res.render('./patients/create');
 }
 
 // TODO: Crear paciente
@@ -24,7 +31,8 @@ const postCreatePatient = async (req, res) => {
 }
 
 module.exports = {
-    getPatients,
+    getItems,
     getPatient,
+    getFormPatient,
     postCreatePatient
 }

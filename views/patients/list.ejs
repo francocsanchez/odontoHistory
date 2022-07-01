@@ -1,0 +1,20 @@
+<h1>LISTADO DE PACIENTES</h1>
+
+<div>
+    <table class="default">
+        <tr>
+            <th>Nombre y Apellido</th>
+            <th>DNI</th>
+            <th>Telefono</th>
+            <th>Email</th>
+        </tr>
+        <% patients.forEach(patient=> { %>
+            <tr>
+                <td><%= patient.lastname%>, <%= patient.name%></td>
+                <td><%= patient.dni%></td>
+                <td><%= patient.phone%></td>
+                <td><%= patient.email%></td>
+            </tr>
+        <% });%>
+    </table>
+</div>
