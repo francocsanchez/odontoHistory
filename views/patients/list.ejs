@@ -2,6 +2,7 @@
 
 <h1>LISTADO DE PACIENTES</h1>
 
+<p><a href="/patients/create">Crear nuevo pacinete</a></p>
 <div>
     <table class="default">
         <tr>
@@ -19,7 +20,11 @@
                 <td><%= patient.phone%></td>
                 <td><%= patient.email%></td>
                 <td><%= patient.workSocial.name%></td>
-                <td>Editar | Eliminar | Ver</td>
+                <td>
+                    <a href="/patient/edit/<%= patient.id %>"> Editar</a> |
+                    <a href="/patient/delete/<%= patient.id %>"> Eliminar</a> |
+                    <a href="/patients/show/<%= patient.id %>"> Ver</a>
+                </td>
             </tr>
         <% });%>
     </table>

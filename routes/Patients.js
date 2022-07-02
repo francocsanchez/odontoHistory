@@ -5,7 +5,7 @@ const { getItems, getPatient, getFormPatient, postCreatePatient } = require('../
 
 // TODO: Pacientes rutas
 router.get('/', getItems);
-router.get('/:id', getPatient);
+router.get('/show/:id', getPatient);
 router.get('/create', getFormPatient);
 router.post('/create', postCreatePatient);
 
