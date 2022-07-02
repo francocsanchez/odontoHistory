@@ -22,14 +22,13 @@ const getFormPatient = async (req, res) => {
 
 // TODO: Crear paciente
 const postCreatePatient = async (req, res) => {
-    const { name, lastname, dni, phone, email, number_affiliate, date_birth, workSocial } = req.body;
     const cantQ = 23;
 
     let health_question = [];
 
     // Creacion de array con variables dinamicas
     for (let index = 1; index <= cantQ; index++) {
-        const r = 'req.body.q';
+        let r = 'req.body.q';
 
         let status = eval(r + index + '[1]');
 
@@ -43,18 +42,19 @@ const postCreatePatient = async (req, res) => {
         health_question.push(question);
     }
 
+    const { body } = req;
+    body.health_question = health_question;
 
-    await patientModel.create({
-        name,
-        lastname,
-        dni,
-        phone,
-        email,
-        number_affiliate,
-        date_birth,
-        workSocial,
-        health_question
-    })
+    // Eliminando preguntas enviadas desde el formulario
+    const {
+        q1, q2, q3, q4, q5,
+        q6, q7, q8, q9, q10,
+        q11, q12, q13, q14, q15,
+        q16, q17, q18, q19, q20,
+        q21, q22, q23,
+        ...newPatient } = body;
+
+    await patientModel.create(newPatient)
 
     res.redirect('/patients');
 }
