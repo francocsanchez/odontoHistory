@@ -22,6 +22,7 @@ const getFormPatient = async (req, res) => {
 
 // TODO: Crear paciente
 const postCreatePatient = async (req, res) => {
+    const { body } = req;
     const cantQ = 23;
 
     let health_question = [];
@@ -40,21 +41,15 @@ const postCreatePatient = async (req, res) => {
             description: eval(r + index + '[2]')
         };
         health_question.push(question);
+
+        // Eliminando preguntas enviadas desde el formulario
+        let k = "q"+index;
+        delete body[k];
     }
 
-    const { body } = req;
     body.health_question = health_question;
-
-    // Eliminando preguntas enviadas desde el formulario
-    const {
-        q1, q2, q3, q4, q5,
-        q6, q7, q8, q9, q10,
-        q11, q12, q13, q14, q15,
-        q16, q17, q18, q19, q20,
-        q21, q22, q23,
-        ...newPatient } = body;
-
-    await patientModel.create(newPatient)
+        
+    await patientModel.create(body)
 
     res.redirect('/patients');
 }
