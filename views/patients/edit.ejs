@@ -1,0 +1,286 @@
+<%- include('../partials/head') %>
+<h1>EDITANDO PACIENTE</h1>
+
+<p>
+    <a href="/patients"> LISTADO</a>
+</p>
+<div>
+    <form action="">
+        <table class="default">
+            <tr>
+                <th>DATOS PERSONALES</th>
+                <th>HISTORIAL CLINICO ODONTOLOGICO</th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>
+                        <label for="">Nombre</label>
+                        <input type="text" name="name" placeholder="Nombre" value="<%= patient.name %>">
+                    </p>
+                    <p>
+                        <label for="">Apellido</label>
+                        <input type="text" name="lastname" placeholder="Apellido" value="<%= patient.lastname %>">
+                    </p>
+                    <p>
+                        <label for="">Telefono</label>
+                        <input type="text" name="phone" placeholder="Telefono" value="<%= patient.phone %>">
+                    </p>
+                    <p>
+                        <label for="">Fecha de nacimiento</label>
+                        <input type="date" name="date_birth" >
+                    </p>
+                    <p>
+                        <label for="">DNI</label>
+                        <input type="text" placeholder="DNI" name="dni" value="<%= patient.dni %>">
+                    </p>
+                    <p>
+                        <label for="">email</label>
+                        <input type="email" placeholder="Email" name="email" value="<%= patient.email %>">
+                    </p>
+                    <p>
+                        <label for="">Obra social</label>
+                        <select required name="workSocial">
+                            <option value="" disabled  hidden>--</option>
+                            <% workSocials.forEach(workSocial=> { %>
+                               <option value="<%= workSocial._id %>" <%= String(workSocial._id)===String(patient.workSocial)  ? 'selected="selected"' : null%> ><%= workSocial.name %></option> 
+                            <% });%>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="">Nº Afiliado</label>
+                        <input type="text" placeholder="Nº Afiliado" name="number_affiliate" value="<%= patient.number_affiliate %>">
+                    </p>
+                </td>
+                <td>
+                    <P>
+                        <label for="">¿Porque asistió a la consulta?</label>
+                        <input type="hidden" name="q17[]" value="¿Porque asistió a la consulta?">
+                        <input type="hidden" name="q17[]" value="">
+                        <input type="text" name="q17[]" placeholder="Observaciones" value="<%= patient.health_question[17].description %>">
+                    </P>
+                    <P>
+                        <label for="">¿Sufre de Bruxismo o apretamiento dentario?</label>
+                        <input type="hidden" name="q18[]" value="¿Sufre de Bruxismo o apretamiento dentario?">
+                        <select name="q18[]" required>
+                            <option value="" disabled selected hidden>--</option>
+                            <option <%=patient.health_question[18].status ? 'selected="selected"' : null%>>Si</option>
+                            <option <%=patient.health_question[18].status ? null : 'selected="selected"'%>>No</option>
+                        </select>
+                        <input type="text" name="q18[]" placeholder="Observaciones" value="<%= patient.health_question[18].description %>">
+                    </P>
+                    <P>
+                        <label for="">¿Utiliza placa de descanso?</label>
+                        <input type="hidden" name="q19[]" value="¿Utiliza placa de descanso?">
+                        <select name="q19[]" required>
+                            <option value="" disabled selected hidden>--</option>
+                            <option <%=patient.health_question[19].status ? 'selected="selected"' : null%>>Si</option>
+                            <option <%=patient.health_question[19].status ? null : 'selected="selected"'%>>No</option>
+                        </select>
+                        <input type="text" name="q19[]" placeholder="Observaciones" value="<%= patient.health_question[19].description %>">
+                    </P>
+                    <P>
+                        <label for="">¿Última visita al odontólogo?</label>
+                        <input type="hidden" name="q20[]" value="¿Última visita al odontólogo?">
+                        <input type="hidden" name="q20[]" value="">
+                        <input type="text" placeholder="AÑO" name="q20[]" value="<%= patient.health_question[20].description %>">
+                    </P>
+                    <P>
+                        <label for="">¿Trabas o ruidos al abrir o cerrar la boca?</label>
+                        <input type="hidden" name="q21[]" value="¿Trabas o ruidos al abrir o cerrar la boca?">
+                        <select name="q21[]" required>
+                            <option value="" disabled selected hidden>--</option>
+                            <option <%=patient.health_question[21].status ? 'selected="selected"' : null%>>Si</option>
+                            <option <%=patient.health_question[21].status ? null : 'selected="selected"'%>>No</option>
+                        </select>
+                        <input type="text" name="q21[]" placeholder="Observaciones" value="<%= patient.health_question[21].description %>">
+                    </P>
+                    <P>
+                        <label for="">¿Le sangran las encías?</label>
+                        <input type="hidden" name="q22[]" value="¿Le sangran las encías?">
+                        <select name="q22[]" required>
+                            <option value="" disabled selected hidden>--</option>
+                            <option <%=patient.health_question[22].status ? 'selected="selected"' : null%>>Si</option>
+                            <option <%=patient.health_question[22].status ? null : 'selected="selected"'%>>No</option>
+                        </select>
+                        <input type="text" name="q22[]" placeholder="Observaciones" value="<%= patient.health_question[22].description %>">
+                    </P>
+                </td>
+            </tr>
+        </table>
+        <H2>PREGUNTAS</H2>
+        <P>
+            <label for="">¿Sufre de alguna enfermedad?</label>
+            <input type="hidden" name="q0[]" value="¿Sufre de alguna enfermedad?">
+            <select name="q0[]">
+                <option value="" disabled hidden>--</option>
+                <option <%=patient.health_question[0].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[0].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q0[]" placeholder="Observaciones" value="<%= patient.health_question[0].description %>">
+        </P>
+        <P>
+            <label for="">¿Está bajo algún tratamiento médico?</label>
+            <input type="hidden" name="q1[]" value="¿Está bajo algún tratamiento médico?">
+            <select name="q1[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[1].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[1].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q1[]" placeholder="Observaciones" value="<%= patient.health_question[1].description %>">
+        </P>
+        <P>
+            <label for="">¿Consume medicamentos habitualmente?</label>
+            <input type="hidden" name="q2[]" value="¿Consume medicamentos habitualmente?">
+            <select name="q2[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[2].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[2].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q2[]" placeholder="Observaciones" value="<%= patient.health_question[2].description %>">
+        </P>
+        <P>
+            <label for="">¿Es alérgico a alguna droga?</label>
+            <input type="hidden" name="q3[]" value="¿Es alérgico a alguna droga?">
+            <select name="q3[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[3].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[3].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q3[]" placeholder="Observaciones" value="<%= patient.health_question[3].description %>">
+        </P>
+        <P>
+            <label for="">¿Alérgico al Hipoclorito de sodio? Latex?</label>
+            <input type="hidden" name="q4[]" value="¿Alérgico al Hipoclorito de sodio? Latex?">
+            <select name="q4[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[4].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[4].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q4[]" placeholder="Observaciones" value="<%= patient.health_question[4].description %>">
+        </P>
+        <P>
+            <label for="">¿Tiene algún problema cardiaco?</label>
+            <input type="hidden" name="q5[]" value="¿Tiene algún problema cardiaco?">
+            <select name="q5[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[5].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[5].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q5[]" placeholder="Observaciones" value="<%= patient.health_question[5].description %>">
+        </P>
+        <P>
+            <label for="">¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?</label>
+            <input type="hidden" name="q6[]" value="¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?">
+            <select name="q6[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[6].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[6].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q6[]" placeholder="Observaciones" value="<%= patient.health_question[6].description %>">
+        </P>
+        <P>
+            <label for="">¿Problemas de presión arterial?</label>
+            <input type="hidden" name="q7[]" value="¿Problemas de presión arterial?">
+            <select name="q7[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[7].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[7].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q7[]" placeholder="Observaciones" value="<%= patient.health_question[7].description %>">
+        </P>
+        <P>
+            <label for="">¿Tiene algún problema respiratorio?</label>
+            <input type="hidden" name="q8[]" value="¿Tiene algún problema respiratorio?">
+            <select name="q8[]" req>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[8].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[8].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q8[]" placeholder="Observaciones" value="<%= patient.health_question[8].description %>">
+        </P>
+        <P>
+            <label for="">¿Es Diabético?</label>
+            <input type="hidden" name="q9[]" value="¿Es Diabético?">
+            <select name="q9[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[9].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[9].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q9[]" placeholder="Observaciones" value="<%= patient.health_question[9].description %>">
+        </P>
+        <P>
+            <label for="">¿Fuma?</label>
+            <input type="hidden" name="q10[]" value="¿Fuma?">
+            <select name="q10[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[10].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[10].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q10[]" placeholder="Observaciones" value="<%= patient.health_question[10].description %>">
+        </P>
+        <P>
+            <label for="">¿Está embarazada?</label>
+            <input type="hidden" name="q11[]" value="¿Está embarazada?">
+            <select name="q11[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[11].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[11].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q11[]" placeholder="Meses?" value="<%= patient.health_question[11].description %>">
+        </P>
+        <P>
+            <label for="">¿Endocarditis previa?</label>
+            <input type="hidden" name="q12[]" value="¿Endocarditis previa?">
+            <select name="q12[]">
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[12].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[12].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q12[]" placeholder="Observaciones" value="<%= patient.health_question[12].description %>">
+        </P>
+        <P>
+            <label for="">¿Osteoporosis / Osteopenia?</label>
+            <input type="hidden" name="q13[]" value="¿Osteoporosis / Osteopenia?">
+            <select name="q13[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[13].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[13].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q13[]" placeholder="Observaciones" value="<%= patient.health_question[13].description %>">
+        </P>
+        <P>
+            <label for="">¿Consume Bifosfonatos?</label>
+            <input type="hidden" name="q14[]" value="¿Consume Bifosfonatos?">
+            <select name="q14[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[14].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[14].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q14[]" placeholder="Observaciones" value="<%= patient.health_question[14].description %>">
+        </P>
+        <P>
+            <label for="">¿Toma anticoagulantes o AAS?</label>
+            <input type="hidden" name="q15[]" value="¿Toma anticoagulantes o AAS?">
+            <select name="q15[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[15].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[15].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q15[]" placeholder="Observaciones" value="<%= patient.health_question[15].description %>">
+        </P>
+        <P>
+            <label for="">¿Tuvo Hepatitis?</label>
+            <input type="hidden" name="q16[]" value="¿Tuvo Hepatitis?">
+            <select name="q16[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option <%=patient.health_question[16].status ? 'selected="selected"' : null%>>Si</option>
+                <option <%=patient.health_question[16].status ? null : 'selected="selected"'%>>No</option>
+            </select>
+            <input type="text" name="q16[]" placeholder="Observaciones" value="<%= patient.health_question[16].description %>">
+        </P>
+
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+<%- include('../partials/footer') %>

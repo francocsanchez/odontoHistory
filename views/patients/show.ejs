@@ -1,7 +1,10 @@
 <%- include('../partials/head') %> 
 
 <h1>PACIENTE - #<%= patient._id %> </h1>
-
+<p>
+    <a href="/patients"> LISTADO</a> |
+    <a href="/patients/edit/<%= patient.id %>"> EDITAR</a> 
+</p>
 <div>
     <p>Fecha de alta: <%= patient.createdAt %></p>
     <p>Nombre y Apellido: <%= patient.name %>, <%= patient.lastname %></p>

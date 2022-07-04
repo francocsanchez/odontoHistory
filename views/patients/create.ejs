@@ -1,6 +1,9 @@
 <%- include('../partials/head') %>
 <h1>FORMULARIO DE ALTA</h1>
 
+<p>
+    <a href="/patients"> LISTADO</a>
+</p>
 <div>
     <form action="" method="POST">
         <table class="default">
@@ -52,13 +55,23 @@
                 <td>
                     <P>
                         <label for="">¿Porque asistió a la consulta?</label>
-                        <input type="hidden" name="q18[]" value="¿Porque asistió a la consulta?">
-                        <input type="hidden" name="q18[]" value="">
-                        <input type="text" name="q18[]" placeholder="Observaciones">
+                        <input type="hidden" name="q17[]" value="¿Porque asistió a la consulta?">
+                        <input type="hidden" name="q17[]" value="">
+                        <input type="text" name="q17[]" placeholder="Observaciones">
                     </P>
                     <P>
                         <label for="">¿Sufre de Bruxismo o apretamiento dentario?</label>
-                        <input type="hidden" name="q19[]" value="¿Sufre de Bruxismo o apretamiento dentario?">
+                        <input type="hidden" name="q18[]" value="¿Sufre de Bruxismo o apretamiento dentario?">
+                        <select name="q18[]" required>
+                            <option value="" disabled selected hidden>--</option>
+                            <option>Si</option>
+                            <option>No</option>
+                        </select>
+                        <input type="text" name="q18[]" placeholder="Observaciones">
+                    </P>
+                    <P>
+                        <label for="">¿Utiliza placa de descanso?</label>
+                        <input type="hidden" name="q19[]" value="¿Utiliza placa de descanso?">
                         <select name="q19[]" required>
                             <option value="" disabled selected hidden>--</option>
                             <option>Si</option>
@@ -67,24 +80,24 @@
                         <input type="text" name="q19[]" placeholder="Observaciones">
                     </P>
                     <P>
-                        <label for="">¿Utiliza placa de descanso?</label>
-                        <input type="hidden" name="q20[]" value="¿Utiliza placa de descanso?">
-                        <select name="q20[]" required>
+                        <label for="">¿Última visita al odontólogo?</label>
+                        <input type="hidden" name="q20[]" value="¿Última visita al odontólogo?">
+                        <input type="hidden" name="q20[]" value="">
+                        <input type="text" placeholder="AÑO" name="q20[]">
+                    </P>
+                    <P>
+                        <label for="">¿Trabas o ruidos al abrir o cerrar la boca?</label>
+                        <input type="hidden" name="q21[]" value="¿Trabas o ruidos al abrir o cerrar la boca?">
+                        <select name="q21[]" required>
                             <option value="" disabled selected hidden>--</option>
                             <option>Si</option>
                             <option>No</option>
                         </select>
-                        <input type="text" name="q20[]" placeholder="Observaciones">
+                        <input type="text" name="q21[]" placeholder="Observaciones">
                     </P>
                     <P>
-                        <label for="">¿Última visita al odontólogo?</label>
-                        <input type="hidden" name="q21[]" value="¿Última visita al odontólogo?">
-                        <input type="hidden" name="q21[]" value="">
-                        <input type="text" placeholder="AÑO" name="q21[]">
-                    </P>
-                    <P>
-                        <label for="">¿Trabas o ruidos al abrir o cerrar la boca?</label>
-                        <input type="hidden" name="q22[]" value="¿Trabas o ruidos al abrir o cerrar la boca?">
+                        <label for="">¿Le sangran las encías?</label>
+                        <input type="hidden" name="q22[]" value="¿Le sangran las encías?">
                         <select name="q22[]" required>
                             <option value="" disabled selected hidden>--</option>
                             <option>Si</option>
@@ -92,23 +105,23 @@
                         </select>
                         <input type="text" name="q22[]" placeholder="Observaciones">
                     </P>
-                    <P>
-                        <label for="">¿Le sangran las encías?</label>
-                        <input type="hidden" name="q23[]" value="¿Le sangran las encías?">
-                        <select name="q23[]" required>
-                            <option value="" disabled selected hidden>--</option>
-                            <option>Si</option>
-                            <option>No</option>
-                        </select>
-                        <input type="text" name="q23[]" placeholder="Observaciones">
-                    </P>
                 </td>
             </tr>
         </table>
         <H2>PREGUNTAS</H2>
         <P>
             <label for="">¿Sufre de alguna enfermedad?</label>
-            <input type="hidden" name="q1[]" value="¿Sufre de alguna enfermedad?">
+            <input type="hidden" name="q0[]" value="¿Sufre de alguna enfermedad?">
+            <select name="q0[]" required>
+                <option value="" disabled selected hidden>--</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
+            <input type="text" name="q0[]" placeholder="Observaciones">
+        </P>
+        <P>
+            <label for="">¿Está bajo algún tratamiento médico?</label>
+            <input type="hidden" name="q1[]" value="¿Está bajo algún tratamiento médico?">
             <select name="q1[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -117,8 +130,8 @@
             <input type="text" name="q1[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Está bajo algún tratamiento médico?</label>
-            <input type="hidden" name="q2[]" value="¿Está bajo algún tratamiento médico?">
+            <label for="">¿Consume medicamentos habitualmente?</label>
+            <input type="hidden" name="q2[]" value="¿Consume medicamentos habitualmente?">
             <select name="q2[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -127,8 +140,8 @@
             <input type="text" name="q2[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Consume medicamentos habitualmente?</label>
-            <input type="hidden" name="q3[]" value="¿Consume medicamentos habitualmente?">
+            <label for="">¿Es alérgico a alguna droga?</label>
+            <input type="hidden" name="q3[]" value="¿Es alérgico a alguna droga?">
             <select name="q3[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -137,8 +150,8 @@
             <input type="text" name="q3[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Es alérgico a alguna droga?</label>
-            <input type="hidden" name="q4[]" value="¿Es alérgico a alguna droga?">
+            <label for="">¿Alérgico al Hipoclorito de sodio? Latex?</label>
+            <input type="hidden" name="q4[]" value="¿Alérgico al Hipoclorito de sodio? Latex?">
             <select name="q4[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -147,8 +160,8 @@
             <input type="text" name="q4[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Alérgico al Hipoclorito de sodio? Latex?</label>
-            <input type="hidden" name="q5[]" value="¿Alérgico al Hipoclorito de sodio? Latex?">
+            <label for="">¿Tiene algún problema cardiaco?</label>
+            <input type="hidden" name="q5[]" value="¿Tiene algún problema cardiaco?">
             <select name="q5[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -157,24 +170,14 @@
             <input type="text" name="q5[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Tiene algún problema cardiaco?</label>
-            <input type="hidden" name="q6[]" value="¿Tiene algún problema cardiaco?">
+            <label for="">¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?</label>
+            <input type="hidden" name="q6[]" value="¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?">
             <select name="q6[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
             </select>
             <input type="text" name="q6[]" placeholder="Observaciones">
-        </P>
-        <P>
-            <label for="">¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?</label>
-            <input type="hidden" name="q7[]" value="¿Utiliza Marcapasos? Stens, bypass, reemplazo valvular?">
-            <select name="q7[]" required>
-                <option value="" disabled selected hidden>--</option>
-                <option>Si</option>
-                <option>No</option>
-            </select>
-            <input type="text" name="q7[]" placeholder="Observaciones">
         </P>
         <P>
             <label for="">¿Problemas de presión arterial?</label>
@@ -188,8 +191,18 @@
         </P>
         <P>
             <label for="">¿Tiene algún problema respiratorio?</label>
-            <input type="hidden" name="q9[]" value="¿Tiene algún problema respiratorio?">
-            <select name="q9[]" req>
+            <input type="hidden" name="q8[]" value="¿Tiene algún problema respiratorio?">
+            <select name="q8[]" req>
+                <option value="" disabled selected hidden>--</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
+            <input type="text" name="q8[]" placeholder="Observaciones">
+        </P>
+        <P>
+            <label for="">¿Es Diabético?</label>
+            <input type="hidden" name="q9[]" value="¿Es Diabético?">
+            <select name="q9[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
@@ -197,8 +210,8 @@
             <input type="text" name="q9[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Es Diabético?</label>
-            <input type="hidden" name="q10[]" value="¿Es Diabético?">
+            <label for="">¿Fuma?</label>
+            <input type="hidden" name="q10[]" value="¿Fuma?">
             <select name="q10[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -207,29 +220,29 @@
             <input type="text" name="q10[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Fuma?</label>
-            <input type="hidden" name="q11[]" value="¿Fuma?">
+            <label for="">¿Está embarazada?</label>
+            <input type="hidden" name="q11[]" value="¿Está embarazada?">
             <select name="q11[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
             </select>
-            <input type="text" name="q11[]" placeholder="Observaciones">
+            <input type="text" name="q11[]" placeholder="Meses?">
         </P>
         <P>
-            <label for="">¿Está embarazada?</label>
-            <input type="hidden" name="q12[]" value="¿Está embarazada?">
-            <select name="q12[]" required>
+            <label for="">¿Endocarditis previa?</label>
+            <input type="hidden" name="q12[]" value="¿Endocarditis previa?">
+            <select name="q12[]">
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
             </select>
-            <input type="text" name="q12[]" placeholder="Meses?">
+            <input type="text" name="q12[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Endocarditis previa?</label>
-            <input type="hidden" name="q13[]" value="¿Endocarditis previa?">
-            <select name="q13[]">
+            <label for="">¿Osteoporosis / Osteopenia?</label>
+            <input type="hidden" name="q13[]" value="¿Osteoporosis / Osteopenia?">
+            <select name="q13[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
@@ -237,8 +250,8 @@
             <input type="text" name="q13[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Osteoporosis / Osteopenia?</label>
-            <input type="hidden" name="q14[]" value="¿Osteoporosis / Osteopenia?">
+            <label for="">¿Consume Bifosfonatos?</label>
+            <input type="hidden" name="q14[]" value="¿Consume Bifosfonatos?">
             <select name="q14[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -247,8 +260,8 @@
             <input type="text" name="q14[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Consume Bifosfonatos?</label>
-            <input type="hidden" name="q15[]" value="¿Consume Bifosfonatos?">
+            <label for="">¿Toma anticoagulantes o AAS?</label>
+            <input type="hidden" name="q15[]" value="¿Toma anticoagulantes o AAS?">
             <select name="q15[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
@@ -257,24 +270,14 @@
             <input type="text" name="q15[]" placeholder="Observaciones">
         </P>
         <P>
-            <label for="">¿Toma anticoagulantes o AAS?</label>
-            <input type="hidden" name="q16[]" value="¿Toma anticoagulantes o AAS?">
+            <label for="">¿Tuvo Hepatitis?</label>
+            <input type="hidden" name="q16[]" value="¿Tuvo Hepatitis?">
             <select name="q16[]" required>
                 <option value="" disabled selected hidden>--</option>
                 <option>Si</option>
                 <option>No</option>
             </select>
             <input type="text" name="q16[]" placeholder="Observaciones">
-        </P>
-        <P>
-            <label for="">¿Tuvo Hepatitis?</label>
-            <input type="hidden" name="q17[]" value="¿Tuvo Hepatitis?">
-            <select name="q17[]" required>
-                <option value="" disabled selected hidden>--</option>
-                <option>Si</option>
-                <option>No</option>
-            </select>
-            <input type="text" name="q17[]" placeholder="Observaciones">
         </P>
 
         <input type="submit" value="Enviar">

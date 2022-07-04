@@ -23,12 +23,12 @@ const getFormPatient = async (req, res) => {
 // TODO: Crear paciente
 const postCreatePatient = async (req, res) => {
     const { body } = req;
-    const cantQ = 23;
+    const cantQ = 22;
 
     let health_question = [];
 
     // Creacion de array con variables dinamicas
-    for (let index = 1; index <= cantQ; index++) {
+    for (let index = 0; index <= cantQ; index++) {
         let r = 'req.body.q';
 
         let status = eval(r + index + '[1]');
@@ -43,20 +43,31 @@ const postCreatePatient = async (req, res) => {
         health_question.push(question);
 
         // Eliminando preguntas enviadas desde el formulario
-        let k = "q"+index;
+        let k = "q" + index;
         delete body[k];
     }
 
     body.health_question = health_question;
-        
+
     await patientModel.create(body)
 
     res.redirect('/patients');
+}
+
+// TODO: Formulario edicion paciente
+
+const updateFormPatient = async (req, res) => {
+    const workSocials = await workSocialModel.find({}).sort({ name: 1 });
+    const patient = await patientModel.findOne({ "_id": req.params.id });
+
+    //workSocial
+    res.render('./patients/edit', { workSocials, patient });
 }
 
 module.exports = {
     getItems,
     getPatient,
     getFormPatient,
-    postCreatePatient
+    postCreatePatient,
+    updateFormPatient
 }
