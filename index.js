@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const dbConnect = require('./config/mongo'); // Archivo de configuracion de BD
+const methodOverride = require('method-override');
 
 const app = express(); // Inicio del servidor
 
@@ -15,6 +16,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'))
 
 app.use(express.static('public'));
+
+app.use(methodOverride('_method'));
 
 // TODO: Main de rutas
 app.use('/users', require('./routes/Users'));
