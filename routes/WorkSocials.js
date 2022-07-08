@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const { getWorkSocials, postCreateWorkSocial } = require('../controllers/workSocialController');
+const {
+    getItems,
+    getFormWorkSocial,
+    postCreateWorkSocial
+} = require('../controllers/workSocialController');
 
 // TODO: Obras sociales rutas
-router.get('/', getWorkSocials);
-router.post('/', postCreateWorkSocial);
+router.get('/', getItems);
+router.get('/create', getFormWorkSocial);
+router.post('/create', postCreateWorkSocial);
+// router.get('/edit/:id', updateFormWorkSocial);
+// router.put('/:id/edit', putUpdateWorkSocial);
 
 module.exports = router;

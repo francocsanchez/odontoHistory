@@ -1,0 +1,28 @@
+<%- include('../partials/head') %> 
+
+<h1>LISTADO DE OBRAS SOCIALES</h1>
+
+<p><a href="/work-socials/create">+ NUEVA OBRA SOCIAL</a></p>
+<div>
+    <table class="default">
+        <tr>
+            <th>Nombre</th>
+            <th>Creada</th>
+            <th>Actualizada</th>
+            <th></th>
+        </tr>
+        <% workSocials.forEach(workSocial=> { %>
+            <tr>
+                <td><%= workSocial.name%></td>
+                <td><%= workSocial.createdAt%></td>
+                <td><%= workSocial.updatedAt%></td>
+                <td>
+                    <a href="/work-socials/edit/<%= workSocial._id %>"> Editar</a> |
+                    <a href="/work-socials/delete/<%= workSocial._id %>"> Eliminar</a>
+                </td>
+            </tr>
+        <% });%>
+    </table>
+</div>
+
+<%- include('../partials/head') %> 
