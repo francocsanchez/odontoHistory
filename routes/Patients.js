@@ -7,7 +7,9 @@ const {
     getFormPatient,
     postCreatePatient,
     updateFormPatient,
-    updatePatient
+    updatePatient,
+    getFormDeletePatient,
+    deletePatient
 } = require('../controllers/patientsController');
 
 // TODO: Pacientes rutas
@@ -17,5 +19,7 @@ router.get('/create', getFormPatient);
 router.post('/create', postCreatePatient);
 router.get('/edit/:id', updateFormPatient);
 router.put('/:id/edit', updatePatient);
+router.get('/:id/delete', getFormDeletePatient);
+router.delete('/:id/delete', deletePatient);
 
 module.exports = router;

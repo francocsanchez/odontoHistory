@@ -1,0 +1,37 @@
+<%- include('../partials/head') %> 
+
+<h1>PACIENTE - #<%= patient._id %> </h1>
+<p>
+    <a href="/patients"> LISTADO</a>
+</p>
+<div>
+    <p>Fecha de alta: <%= patient.createdAt %></p>
+    <p>Nombre y Apellido: <%= patient.name %>, <%= patient.lastname %></p>
+    <p>DNI: <%= patient.dni %></p>
+    <p>Telefono: <%= patient.phone %></p>
+    <p>Email: <%= patient.email %></p>
+    <p>Fecha de nacimiento: <%= patient.date_birth %></p>
+    <p>Nº de Afiliado: <%= patient.number_affiliate %></p>
+    <p>Obra social: <%= patient.workSocial.name%></p>
+    <p>
+        <table class="default">
+            <tr>
+                <th>Pregunta</th>
+                <th>Status</th>
+                <th>Observaciones</th>
+            </tr>
+            <% patient.health_question.forEach(q=> { %>
+                <tr>
+                    <td><%= q.question %></td>
+                    <td><%= (q.status) ? 'Si' : null %></td>
+                    <td><%= q.description %></td>
+                </tr>
+            <% });%>
+        </table>
+    </p>
+</div>
+<form method="POST" action="/patients/<%= patient._id %>/delete?_method=DELETE">
+    <input type="submit" value="Eliminar">
+</form>
+
+<%- include('../partials/head') %> 

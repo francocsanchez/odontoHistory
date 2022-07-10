@@ -99,11 +99,27 @@ const updatePatient = async (req, res) => {
     res.redirect('/patients');
 }
 
+//TODO: Formulario de eliminacion de paciente
+const getFormDeletePatient = async (req, res) => {
+    const patient = await patientModel.findOne({ "_id": req.params.id }).populate('workSocial');
+
+    res.render('./patients/delete', { patient });
+}
+
+//TODO: Eliminar paciente
+const deletePatient = async (req, res) => {
+    await patientModel.delete({ "_id": req.params.id });
+
+    res.redirect('/patients');
+}
+
 module.exports = {
     getItems,
     getPatient,
     getFormPatient,
     postCreatePatient,
     updateFormPatient,
-    updatePatient
+    updatePatient,
+    getFormDeletePatient,
+    deletePatient
 }
