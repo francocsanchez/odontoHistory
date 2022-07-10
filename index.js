@@ -21,9 +21,15 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 // TODO: Main de rutas
-app.use('/users', require('./routes/Users'));
-app.use('/patients', require('./routes/Patients'));
-app.use('/work-socials', require('./routes/WorkSocials'));
+const {
+    patientsRouter,
+    usersRouter,
+    workSocialsRouter
+} = require('./routes/Index');
+
+app.use('/users', usersRouter);
+app.use('/patients', patientsRouter);
+app.use('/work-socials', workSocialsRouter);
 
 app.listen(process.env.APP_PORT || 3000, () => {
     console.log('*** Server running ***');
