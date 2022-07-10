@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongooseDelete = require('mongoose-delete');
 
 const workSocialSchema = new mongoose.Schema(
     {
@@ -9,5 +10,7 @@ const workSocialSchema = new mongoose.Schema(
         versionKey: false
     }
 )
+
+workSocialSchema.plugin(mongooseDelete, { overrideMethods: 'all' });
 
 module.exports = mongoose.model('workSocial', workSocialSchema);
