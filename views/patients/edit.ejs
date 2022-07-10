@@ -5,7 +5,7 @@
     <a href="/patients"> LISTADO</a>
 </p>
 <div>
-    <form action="">
+    <form method="POST" action="/patients/<%= patient._id %>/edit?_method=PUT">
         <table class="default">
             <tr>
                 <th>DATOS PERSONALES</th>
