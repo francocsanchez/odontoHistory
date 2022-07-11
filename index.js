@@ -22,14 +22,16 @@ app.use(methodOverride('_method'));
 
 // TODO: Main de rutas
 const {
-    patientsRouter,
-    usersRouter,
-    workSocialsRouter
+    patientsRoutes,
+    usersRoutes,
+    workSocialsRoutes,
+    mainRoutes
 } = require('./routes/Index');
 
-app.use('/users', usersRouter);
-app.use('/patients', patientsRouter);
-app.use('/work-socials', workSocialsRouter);
+app.use('/users', usersRoutes);
+app.use('/patients', patientsRoutes);
+app.use('/work-socials', workSocialsRoutes);
+app.use('/', mainRoutes);
 
 app.listen(process.env.APP_PORT || 3000, () => {
     console.log('*** Server running ***');

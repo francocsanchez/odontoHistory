@@ -1,7 +1,8 @@
 const routes = {
-    patientsRouter: require('./Patients'),
-    workSocialsRouter: require('./WorkSocials'),
-    usersRouter: require('./Users'),
+    patientsRoutes: require('./Patients'),
+    workSocialsRoutes: require('./WorkSocials'),
+    usersRoutes: require('./Users'),
+    mainRoutes: require('./Main'),
 }
 
 module.exports = routes;
