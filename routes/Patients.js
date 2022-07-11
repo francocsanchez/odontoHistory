@@ -17,7 +17,7 @@ router.get('/', getItems);
 router.get('/show/:id', getPatient);
 router.get('/create', getFormPatient);
 router.post('/create', postCreatePatient);
-router.get('/edit/:id', updateFormPatient);
+router.get('/:id/edit/', updateFormPatient);
 router.put('/:id/edit', updatePatient);
 router.get('/:id/delete', getFormDeletePatient);
 router.delete('/:id/delete', deletePatient);
