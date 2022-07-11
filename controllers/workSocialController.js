@@ -16,61 +16,48 @@ const getFormWorkSocial = async (req, res) => {
 const postCreateWorkSocial = async (req, res) => {
     const { body } = req;
 
-    return res.send(body);
     await workSocialModel.create(body)
 
     res.redirect('/work-socials');
 }
 
-// TODO: Formulario edicion paciente
-
-const updateFormPatient = async (req, res) => {
-    const workSocials = await workSocialModel.find({}).sort({ name: 1 });
-    const patient = await patientModel.findOne({ "_id": req.params.id });
+// TODO: Formulario edicion obra social
+const updateFormWorkSocial = async (req, res) => {
+    const workSocial = await workSocialModel.findOne({ "_id": req.params.id });
 
     //workSocial
-    res.render('./patients/edit', { workSocials, patient });
+    res.render('./workSocials/edit', { workSocial });
 }
 
-const putUpdatePatient = async (req, res) => {
+// TODO: Actualizacion de obra social
+const putUpdateWorkSocial = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
 
-    return res.send(body);
+    await workSocialModel.findOneAndUpdate(id, body)
 
-    const cantQ = 22;
+    res.redirect('/work-socials');
+}
 
-    let health_question = [];
+// TODO: Formulario de eliminacion de obra social
+const getFormDelete = async (req, res) => {
+    const workSocial = await workSocialModel.findOne({ "_id": req.params.id });
+    res.render('./workSocials/delete', { workSocial })
+}
 
-    // Creacion de array con variables dinamicas
-    for (let index = 0; index <= cantQ; index++) {
-        let r = 'req.body.q';
+// TODO: Eliminacion de obra social
+const deleteItem = async (req, res) => {
+    await workSocialModel.delete({ "_id": req.params.id });
 
-        let status = eval(r + index + '[1]');
-
-        if (status == "Si") { status = true } else { status = false }
-
-        let question = {
-            question: eval(r + index + '[0]'),
-            status: status,
-            description: eval(r + index + '[2]')
-        };
-        health_question.push(question);
-
-        // Eliminando preguntas enviadas desde el formulario
-        let k = "q" + index;
-        delete body[k];
-    }
-
-    body.health_question = health_question;
-
-    await patientModel.findOneAndUpdate(id, body)
-
-    res.redirect('/patients');
+    res.redirect('/work-socials');
 }
 
 module.exports = {
     getItems,
     getFormWorkSocial,
-    postCreateWorkSocial
+    postCreateWorkSocial,
+    updateFormWorkSocial,
+    putUpdateWorkSocial,
+    getFormDelete,
+    deleteItem
 }

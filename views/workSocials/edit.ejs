@@ -1,14 +1,14 @@
 <%- include('../partials/head') %>
-    <h1>FORMULARIO DE ALTA</h1>
+    <h1>EDITANDO OBRA SOCIAL</h1>
 
     <p>
         <a href="/work-socials"> LISTADO</a>
     </p>
     <div>
-        <form action="" method="POST">
+        <form action="/work-socials/<%= workSocial._id %>/edit?_method=PUT" method="POST">
             <p>
                 <label for="">Nombre</label>
-                <input type="text" name="name" placeholder="Nombre">
+                <input type="text" name="name" placeholder="Nombre" value="<%= workSocial.name %>">
             </p>
         <input type="submit" value="Enviar">
         </form>

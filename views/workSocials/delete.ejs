@@ -1,0 +1,15 @@
+<%- include('../partials/head') %> 
+
+<h1>OBRA SOCIAL - #<%= workSocial._id %> </h1>
+<p>
+    <a href="/work-socials"> LISTADO</a>
+</p>
+<div>
+    <p>Confirma que eliminara el registro con el nombre <%= workSocial.name %></p>
+    <p>Fecha de alta: <%= workSocial.createdAt %></p>
+</div>
+<form method="POST" action="/work-socials/<%= workSocial._id %>/delete?_method=DELETE">
+    <input type="submit" value="Eliminar">
+</form>
+
+<%- include('../partials/footer') %> 

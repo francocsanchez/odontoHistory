@@ -17,8 +17,8 @@
                 <td><%= workSocial.createdAt%></td>
                 <td><%= workSocial.updatedAt%></td>
                 <td>
-                    <a href="/work-socials/edit/<%= workSocial._id %>"> Editar</a> |
-                    <a href="/work-socials/delete/<%= workSocial._id %>"> Eliminar</a>
+                    <a href="/work-socials/<%= workSocial._id %>/edit"> Editar</a> |
+                    <a href="/work-socials/<%= workSocial._id %>/delete"> Eliminar</a>
                 </td>
             </tr>
         <% });%>
